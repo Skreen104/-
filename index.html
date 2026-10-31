@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#17140F">
+<meta name="description" content="Схема переда безрукавки с косой и жгутами, разложенная по рядам.">
+<meta property="og:title" content="Безрукавка с косой">
+<meta property="og:description" content="Схема переда по рядам: этапы, перекресты, убавки, плотность и сборка.">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Безрукавка с косой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Onest:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+/* Макет: рабочий лист вязальщицы. Колонка урока на миллиметровке; главная схема — широкий «верстак» с панелью ряда; счётчик рядов в углу, цифры цвета штампа даты с фото */
+:root{
+  --paper:#EEEEE9; --surface:#FBFBF8; --sunk:#E5E4DD; --ink:#23201B; --muted:#67625A; --line:#D6D3CA; --grid:#E4E3DC;
+  --t-purl:#6F6152; --t-knit:#BBAD94; --t-cable:#F5EDDB; --t-edge:#2A251F; --t-sym:rgba(255,250,240,.6); --t-gridline:rgba(40,32,24,.16);
+  --stamp:#D85A16; --stamp-ink:#B4470C; --stamp-soft:#FBE4D4; --sel:#2C6A8A; --sel-soft:rgba(44,106,138,.15); --ok:#3B8657; --ok-soft:#DCEFE2;
+  --table:#17140F; --on-table:#EFE7D6; --on-table-muted:#ADA28E; --table-line:#2E2922; --table-border:#4A4337; --table-btn:#2C261E; --table-btn-hover:#3A3227; --table-accent:#FF8B48; --table-ok:#7AD39E; --table-glow:#2A241C;
+  --f-display:"Tenor Sans","Futura","Century Gothic","Trebuchet MS",sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  --r:18px; --r-s:10px;
+  --shadow:0 1px 2px rgba(40,30,20,.06),0 14px 34px -22px rgba(40,30,20,.38);
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#131210; --surface:#1B1A17; --sunk:#100F0D; --ink:#ECE7DD; --muted:#A39C90; --line:#302D28; --grid:#1D1C19;
+  --t-purl:#4D4339; --t-knit:#8F826D; --t-cable:#E6DBC4; --t-edge:#0A0908; --t-sym:rgba(255,245,230,.5); --t-gridline:rgba(0,0,0,.28);
+  --stamp:#FF8B48; --stamp-ink:#FFA472; --stamp-soft:#3A2416; --sel:#74B8D8; --sel-soft:rgba(116,184,216,.2); --ok:#69C38E; --ok-soft:#1C3325;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 36px -22px rgba(0,0,0,.8); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#131210; --surface:#1B1A17; --sunk:#100F0D; --ink:#ECE7DD; --muted:#A39C90; --line:#302D28; --grid:#1D1C19;
+  --t-purl:#4D4339; --t-knit:#8F826D; --t-cable:#E6DBC4; --t-edge:#0A0908; --t-sym:rgba(255,245,230,.5); --t-gridline:rgba(0,0,0,.28);
+  --stamp:#FF8B48; --stamp-ink:#FFA472; --stamp-soft:#3A2416; --sel:#74B8D8; --sel-soft:rgba(116,184,216,.2); --ok:#69C38E; --ok-soft:#1C3325;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 16px 36px -22px rgba(0,0,0,.8); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{
+  background-color:var(--paper);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:22px 22px;
+  color:var(--ink);font:17px/1.6 var(--f-body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  padding-block:0 120px;
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:.01em}
+h2{font-size:clamp(1.8rem,1.3rem + 2vw,2.6rem);line-height:1.1}
+h3{font-size:1.3rem;line-height:1.25}
+p{margin:0}
+a{color:var(--sel)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--sel);outline-offset:2px;border-radius:6px}
+.mono{font-family:var(--f-mono);font-variant-numeric:tabular-nums}
+.wrap{max-width:840px;margin:0 auto}
+.wide{max-width:1180px;margin:0 auto}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.lead{color:var(--muted);max-width:62ch}
+.stack{display:flex;flex-direction:column;gap:14px}
+
+/* ---------- hero ---------- */
+.hero{margin-top:22px;background:var(--table);color:var(--on-table);border-radius:28px;overflow:hidden;
+  display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:0;box-shadow:var(--shadow)}
+.hero-text{padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:18px;min-width:0}
+.hero .eyebrow{color:var(--on-table-muted)}
+.hero .zh{font-family:var(--f-body);letter-spacing:.3em;margin-left:.4em}
+.hero h1{font-size:clamp(2.4rem,1.6rem + 3.6vw,4.2rem);line-height:1.02}
+.hero p{color:var(--on-table-muted);max-width:52ch}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:4px;padding-top:16px;border-top:1px solid var(--table-line)}
+.fact b{display:block;font-family:var(--f-mono);font-weight:500;font-size:1.25rem;color:var(--on-table)}
+.fact span{font-size:.86rem;color:var(--on-table-muted)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;text-decoration:none;font-weight:500;font-size:.95rem}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.hero .btn{background:transparent;color:var(--on-table);border-color:var(--table-border)}
+.hero .btn.primary{background:var(--on-table);color:var(--table);border-color:var(--on-table)}
+.hero-art{position:relative;display:flex;align-items:center;justify-content:center;padding:26px 18px 16px;min-width:0;
+  background:radial-gradient(120% 80% at 50% 30%,var(--table-glow) 0%,var(--table) 70%)}
+.hero-art figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:10px;width:100%}
+#knit{width:100%;max-width:330px;height:auto;display:block}
+.hero-art figcaption{font-size:.8rem;color:var(--on-table-muted);text-align:center;max-width:34ch}
+
+/* ---------- nav ---------- */
+.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;margin:22px auto 0;max-width:1180px;
+  background:var(--paper);background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line)}
+.toc ol{list-style:none;margin:0;padding:10px 0;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.toc ol::-webkit-scrollbar{display:none}
+.toc a{display:flex;align-items:center;gap:8px;white-space:nowrap;padding:7px 12px;border-radius:999px;text-decoration:none;color:var(--ink);font-size:.92rem}
+.toc a:hover{background:var(--sunk)}
+.toc a i{font-style:normal;font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+
+section{padding-top:64px}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+
+/* ---------- cards & lists ---------- */
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(18px,3vw,28px)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.grid2>*{min-width:0}
+.need{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.need li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.need li:last-child{border-bottom:0}
+.need .dot{width:11px;height:11px;border-radius:50%;margin-top:.5em;background:var(--ink)}
+.need .dot.est{background:transparent;border:2px solid var(--stamp)}
+.need b{font-weight:600}
+.note{font-size:.88rem;color:var(--muted)}
+.tag-est{display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--stamp-ink);background:var(--stamp-soft);padding:2px 7px;border-radius:5px;vertical-align:.1em}
+
+/* legend */
+.legend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.lg{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:start;padding:14px;border-radius:var(--r-s);background:var(--sunk)}
+.sw{width:52px;height:40px;border-radius:6px;border:1.5px solid var(--t-edge);position:relative;overflow:hidden}
+.sw.p{background:var(--t-purl)} .sw.k{background:var(--t-knit)} .sw.c{background:var(--t-cable)}
+.sw.p::after{content:"";position:absolute;left:30%;right:30%;top:50%;height:2px;margin-top:-1px;background:var(--t-sym)}
+.sw.x{background:var(--t-cable)}
+.sw.x svg{position:absolute;inset:0;width:100%;height:100%}
+.lg b{display:block;font-weight:600}
+.lg span{font-size:.9rem;color:var(--muted)}
+
+.dict{display:grid;grid-template-columns:auto minmax(0,1fr);gap:10px 18px;margin:0}
+.dict dt{font-family:var(--f-mono);font-weight:500;white-space:nowrap}
+.dict dd{margin:0;color:var(--muted)}
+
+/* gauge */
+.gauge{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:22px;align-items:start}
+.gauge>*{min-width:0}
+.stepper{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.stepper label{flex:1 1 140px;font-size:.95rem}
+.stepper .ctl{display:flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.stepper button{width:44px;height:44px;border:0;background:transparent;font-size:1.2rem;cursor:pointer;border-radius:999px}
+.stepper input{width:64px;height:44px;border:0;background:transparent;text-align:center;font:500 1.1rem var(--f-mono);color:var(--ink)}
+.stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.stepper input{-moz-appearance:textfield}
+.measures{width:100%;border-collapse:collapse;font-size:.95rem}
+.measures td{padding:8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.measures td:nth-child(2){text-align:right;font-family:var(--f-mono);white-space:nowrap;color:var(--muted);padding-left:10px}
+.measures td:nth-child(3){text-align:right;font-family:var(--f-mono);font-weight:600;white-space:nowrap;padding-left:14px}
+.measures tr.total td{border-bottom:0;padding-top:12px}
+
+/* ---------- chart workbench ---------- */
+.bench{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:18px;align-items:start}
+.bench>*{min-width:0}
+.chart-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--line)}
+.toolbar .sp{flex:1 1 auto}
+.seg{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;max-width:100%}
+.seg::-webkit-scrollbar{display:none}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 12px;font-size:.84rem;cursor:pointer;white-space:nowrap;min-height:34px}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.icon-btn{width:38px;height:38px;border-radius:999px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font-size:1.1rem;display:inline-flex;align-items:center;justify-content:center}
+.zoomlbl{font-family:var(--f-mono);font-size:.78rem;color:var(--muted);min-width:3.6em;text-align:center}
+.chart-scroll{overflow:auto;max-height:min(76vh,920px);overscroll-behavior:contain;background:var(--surface);-webkit-overflow-scrolling:touch}
+.chart-scroll:focus-visible{outline-offset:-3px}
+#chart{display:block;cursor:pointer;touch-action:pan-x pan-y}
+.chart-foot{display:flex;flex-wrap:wrap;gap:6px 16px;padding:10px 14px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+.chart-foot span{display:inline-flex;align-items:center;gap:6px}
+.mini-sw{width:14px;height:11px;border:1px solid var(--t-edge);border-radius:2px;display:inline-block}
+
+.rowpanel{position:sticky;top:calc(env(safe-area-inset-top,0px) + 70px);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--shadow);max-height:calc(100vh - 100px);overflow:auto}
+.rp-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.rp-num{font-family:var(--f-mono);font-weight:600;font-size:2.6rem;line-height:1;color:var(--ink)}
+.rp-num small{font-size:.9rem;color:var(--muted);font-weight:400}
+.rp-dir{font-size:.85rem;color:var(--muted);text-align:right}
+.rp-dir b{display:block;color:var(--ink);font-weight:600;font-size:.95rem}
+.rp-stage{font-size:.82rem;color:var(--muted)}
+.runs{display:flex;flex-wrap:wrap;gap:6px}
+.run{display:inline-flex;align-items:center;gap:7px;padding:5px 9px 5px 6px;border-radius:8px;border:1px solid var(--line);background:var(--paper);font-size:.86rem;line-height:1.2}
+.run i{width:12px;height:16px;border-radius:3px;border:1px solid var(--t-edge);flex:none}
+.run i.p{background:var(--t-purl)} .run i.k{background:var(--t-knit)} .run i.c{background:var(--t-cable)}
+.run b{font-family:var(--f-mono);font-weight:600}
+.run.x{border-color:var(--stamp);background:var(--stamp-soft)}
+.run .xm{color:var(--stamp-ink);font-weight:700}
+.rp-notes{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.rp-notes li{font-size:.9rem;padding:9px 11px;border-radius:9px;background:var(--sunk);line-height:1.45}
+.rp-notes li.x{background:var(--stamp-soft)}
+.rp-notes li.shape{background:var(--sel-soft)}
+.rp-notes li b{font-weight:600}
+.rp-nav{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px}
+#rp-unmark{grid-column:1 / -1;min-height:38px;font-size:.88rem}
+.rp-nav .icon{min-width:46px;padding:0 12px;font-size:1.1rem}
+.rp-nav .btn{min-height:46px}
+.btn.done{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.prog{display:flex;flex-direction:column;gap:6px;font-size:.84rem;color:var(--muted)}
+.bar{height:6px;border-radius:99px;background:var(--sunk);overflow:hidden}
+.bar>div{height:100%;width:0;background:var(--ok);border-radius:99px;transition:width .3s}
+
+/* ---------- stages ---------- */
+.stages{display:flex;flex-direction:column;gap:18px}
+.stage{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(16px,2.6vw,24px)}
+.stage>*{min-width:0}
+.stage canvas{width:150px;height:auto;display:block;border-radius:8px;background:var(--sunk)}
+.stage-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}
+.stage-head .no{font-family:var(--f-mono);color:var(--stamp-ink);font-weight:600}
+.stage-head .rows{font-family:var(--f-mono);font-size:.84rem;color:var(--muted);margin-left:auto}
+.stage ul{margin:10px 0 0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+.stage ul li::marker{color:var(--muted)}
+.stage .count{display:inline-block;font-family:var(--f-mono);font-size:.8rem;padding:2px 8px;border-radius:6px;background:var(--sunk);margin-top:10px}
+.stage .btn{margin-top:14px;min-height:40px;font-size:.88rem}
+.rhythm{width:100%;border-collapse:collapse;font-size:.92rem}
+.rhythm th{text-align:left;font-weight:600;padding:10px 12px 10px 0;vertical-align:top;white-space:nowrap}
+.rhythm td{padding:10px 0;border-top:1px solid var(--line);color:var(--muted);vertical-align:top}
+.rhythm tr:first-child td,.rhythm tr:first-child th{border-top:0}
+.rhythm .r{color:var(--stamp-ink)}
+.rhythm .l{color:var(--sel)}
+.table-scroll{overflow-x:auto}
+
+/* checklist */
+.check{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.check li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:12px;align-items:start;padding:14px;border-radius:var(--r-s);background:var(--surface);border:1px solid var(--line)}
+.check input{width:24px;height:24px;margin:2px 0 0;accent-color:var(--ok)}
+.check b{display:block;font-weight:600}
+.check span{color:var(--muted);font-size:.93rem}
+.check li.on{background:var(--ok-soft)}
+.callout{border:1.5px dashed var(--stamp);border-radius:var(--r);padding:clamp(16px,3vw,24px);display:flex;flex-direction:column;gap:10px}
+.callout .eyebrow{color:var(--stamp-ink)}
+footer{margin-top:72px;padding-top:20px;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+
+/* floating counter */
+.counter{position:fixed;z-index:20;right:max(14px,calc(env(safe-area-inset-right,0px) + 14px));bottom:calc(env(safe-area-inset-bottom,0px) + 14px);
+  display:flex;align-items:center;gap:6px;padding:6px;border-radius:999px;background:var(--table);color:var(--on-table);box-shadow:0 10px 30px -10px rgba(0,0,0,.55)}
+.counter button{width:44px;height:44px;border-radius:999px;border:0;background:var(--table-btn);color:var(--on-table);font-size:1.3rem;cursor:pointer}
+.counter button:hover{background:var(--table-btn-hover)}
+.counter .val{display:flex;flex-direction:column;align-items:center;min-width:76px;padding:0 4px;cursor:pointer;background:none;border:0;color:inherit}
+.counter .val small{font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--on-table-muted)}
+.counter .val b{font-family:var(--f-mono);font-size:1.5rem;font-weight:600;line-height:1.05;color:var(--table-accent);letter-spacing:.04em}
+.counter .val.done b{color:var(--table-ok)}
+
+@media (max-width: 980px){
+  .bench{grid-template-columns:minmax(0,1fr)}
+  .rowpanel{position:static;max-height:none}
+}
+#rp-mini{display:none}
+@media (max-width: 980px){
+  #rp-mini{display:flex;flex-direction:column;gap:6px;padding:10px 14px;border-top:1px solid var(--line);background:var(--sel-soft)}
+  #rp-mini .t{display:flex;justify-content:space-between;gap:10px;font-size:.9rem}
+  #rp-mini .t b{font-family:var(--f-mono)}
+  #rp-mini .seq{font-family:var(--f-mono);font-size:.84rem;line-height:1.5;word-break:break-word}
+  #rp-mini .seq .x{color:var(--stamp-ink);font-weight:600}
+  #rp-mini a{font-size:.85rem}
+}
+@media (max-width: 760px){
+  .hero{border-radius:22px;margin-top:12px}
+  .hero-text{padding:20px 18px 24px;gap:14px}
+  .hero h1{font-size:2.35rem}
+  .fact b{font-size:1.05rem}
+  .hero-cta .btn{flex:1 1 100%}
+  section{padding-top:46px}
+  h2{font-size:1.75rem}
+  .panel{padding:16px}
+  .lg{grid-template-columns:44px minmax(0,1fr);padding:12px}
+  .sw{width:44px;height:34px}
+  .dict{grid-template-columns:minmax(0,1fr)}
+  .dict dd{margin-bottom:6px}
+  .chip{min-height:40px;padding:6px 14px}
+  .icon-btn{width:44px;height:44px}
+  .toolbar{padding:8px}
+  .chart-scroll{max-height:60vh;max-height:60svh}
+  .chart-foot{font-size:.78rem}
+  .rowpanel{padding:14px;gap:12px}
+  .rp-num{font-size:2.1rem}
+  .measures{font-size:.88rem}
+  .stage{gap:12px}
+  .stage-head .rows{margin-left:0;width:100%}
+  .check li{padding:12px}
+  .counter{gap:4px;padding:5px}
+  .counter .val{min-width:64px}
+}
+  body{font-size:16px}
+  .hero{grid-template-columns:minmax(0,1fr)}
+  .hero-art{order:-1;padding-top:22px}
+  #knit{max-width:250px}
+  .grid2,.legend,.gauge{grid-template-columns:minmax(0,1fr)}
+  .stage{grid-template-columns:minmax(0,1fr)}
+  .stage canvas{width:120px}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+</style>
+</head>
+<body>
+
+
+<div class="wrap" style="max-width:1180px">
+<header class="hero" id="top">
+  <div class="hero-text">
+    <div class="eyebrow">Схема из журнала по вязанию</div>
+    <h1>Безрукавка с косой</h1>
+    <p>Перед с центральной косой-плетёнкой, жгутами вдоль пройм и гладкими полосами, которые идут наискосок и перекрещиваются на изнаночной глади. Схему со снимка мы перерисовали по клеткам и разложили по рядам: выбирайте ряд — увидите, что и сколько вязать.</p>
+    <div class="facts">
+      <div class="fact"><b>81 → 85 п.</b><span>по низу и по груди</span></div>
+      <div class="fact"><b>140 рядов</b><span>вместе с воротником</span></div>
+      <div class="fact"><b>12 + 2×6 п.</b><span>коса и два жгута</span></div>
+      <div class="fact"><b>39 п. × 15 р.</b><span>воротник-стойка</span></div>
+    </div>
+    <div class="hero-cta">
+      <a class="btn primary" href="#chart-sec">Открыть схему по рядам</a>
+      <a class="btn" href="#prep">Сначала подготовка</a>
+    </div>
+  </div>
+  <div class="hero-art">
+    <figure>
+      <canvas id="knit" width="510" height="616" role="img" aria-label="Перед безрукавки, нарисованный петлями по схеме"></canvas>
+      <figcaption>Перед по этой схеме, нарисованный петлями: светлые косы, гладкие полосы и фон изнаночной гладью.</figcaption>
+    </figure>
+  </div>
+</header>
+</div>
+
+<nav class="toc" aria-label="Разделы">
+  <ol>
+    <li><a href="#prep"><i>1</i>Подготовка</a></li>
+    <li><a href="#chart-sec"><i>2</i>Схема по рядам</a></li>
+    <li><a href="#stages"><i>3</i>Перед по этапам</a></li>
+    <li><a href="#finish"><i>4</i>Спинка и сборка</a></li>
+  </ol>
+</nav>
+
+<!-- ============ 1. Подготовка ============ -->
+<section id="prep" class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Шаг 1 · до первой петли</div>
+    <h2>Подготовка</h2>
+    <p class="lead">На странице журнала есть только схема переда, без описания. Всё, что из неё не следует, мы дописали обычными приёмами и пометили значком «оценка».</p>
+  </div>
+
+  <div class="grid2">
+    <div class="panel stack">
+      <h3>Что понадобится</h3>
+      <ul class="need">
+        <li><span class="dot est" aria-hidden="true"></span><div><b>Пряжа с мохером или ангорой</b>, светлая, около 250 г на безрукавку. <span class="tag-est">оценка</span><div class="note">На фото — пушистая пряжа цвета топлёного молока, полотно мягкое и не плотное.</div></div></li>
+        <li><span class="dot est" aria-hidden="true"></span><div><b>Спицы 3,5–4 мм</b> — подберите по образцу. <span class="tag-est">оценка</span></div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><b>Вспомогательная спица</b> для перекрестов: жгуты по 6 п., коса — по 8 п.</div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><b>Маркеры</b> — отметить края косы и жгутов в первых рядах.</div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><b>Нитка или булавки</b> — снять петли плеч, их потом соединяют со спинкой.</div></li>
+        <li><span class="dot" aria-hidden="true"></span><div><b>Тупая игла</b> для швов.</div></li>
+      </ul>
+      <p class="note">Сплошной кружок — следует из схемы. Пустой — наша оценка.</p>
+    </div>
+
+    <div class="panel stack">
+      <h3>Как читать схему</h3>
+      <div class="legend">
+        <div class="lg"><span class="sw p" aria-hidden="true"></span><div><b>Тёмная клетка</b><span>изнаночная гладь — фон. На лицевой стороне изнаночная, на изнанке лицевая.</span></div></div>
+        <div class="lg"><span class="sw k" aria-hidden="true"></span><div><b>Средняя клетка</b><span>лицевая гладь — гладкие полосы, которые идут наискосок.</span></div></div>
+        <div class="lg"><span class="sw c" aria-hidden="true"></span><div><b>Светлая клетка</b><span>лицевые петли косы и жгутов.</span></div></div>
+        <div class="lg"><span class="sw x" aria-hidden="true"><svg viewBox="0 0 52 40"><path d="M6 14 L46 26 M6 26 L46 14" stroke="var(--stamp)" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg></span><div><b>Перекрест</b><span>в этом ряду петли косы или жгута перекрещивают.</span></div></div>
+      </div>
+      <ul class="need" style="margin-top:4px">
+        <li><span class="dot" aria-hidden="true"></span><div>Нечётные ряды — <b>лицевые</b>, читаем справа налево. Чётные — <b>изнаночные</b>, слева направо; петли вяжем так, как они лежат.</div></li>
+        <li><span class="dot" aria-hidden="true"></span><div>Когда полоса на схеме смещается на петлю, перекрестите крайнюю петлю полосы с соседней петлёй фона: лицевая ложится сверху.</div></li>
+        <li><span class="dot" aria-hidden="true"></span><div>Там, где светлая полоса сходит на клин и потом появляется снова, жгут уходит под гладкую полосу.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="grid2" style="margin-top:18px">
+    <div class="panel stack">
+      <h3>Обозначения на странице журнала</h3>
+      <dl class="dict">
+        <dt>Заголовок</dt><dd>над схемой написано «узор вязания».</dd>
+        <dt>Полоска «1 ряд»</dt><dd>отдельная полоска над плечами: после укороченных рядов плеч провязывают один ряд по всем петлям. У нас это 125-й ряд.</dd>
+        <dt>1…40</dt><dd>Номера рядов справа. В журнале счёт начинается заново каждые 40 рядов, а у воротника — с 1 до 15. Здесь ряды пронумерованы подряд: 1–140.</dd>
+        <dt>1…81</dt><dd>Номера петель внизу, первая — справа.</dd>
+      </dl>
+    </div>
+    <div class="panel stack">
+      <h3>Ритм перекрестов</h3>
+      <div class="table-scroll">
+      <table class="rhythm">
+        <tr><th>Жгуты, 6 п.</th><td>Перекрест 3/3 каждые 8 рядов: 5-й, 13-й, 21-й … 117-й. Оба жгута — в одних и тех же рядах.</td></tr>
+        <tr><th>Коса, 12 п.</th><td>Плетёнка: каждые 6 рядов перекрест 4/4, по очереди <span class="r">правые 8 п.</span> и <span class="l">левые 8 п.</span>: 5 (справа), 11 (слева), 17 (справа) … 137.</td></tr>
+        <tr><th>Направление</th><td>По снимку не различить, куда наклонены перекресты. Для плетёнки: правые 8 п. — 4 п. на вспомогательной спице <b>за работой</b>, левые 8 п. — <b>перед работой</b>. Жгуты — как вам нравится, но каждый всегда в одну сторону. <span class="tag-est">оценка</span></td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:18px">
+    <div class="gauge">
+      <div class="stack">
+        <h3>Плотность и размеры</h3>
+        <p class="note">В журнале плотности нет. Свяжите образец 30 п. × 30 р. изнаночной гладью со жгутом 6 п. посередине, отпарьте и посчитайте петли и ряды в 10 см. Введите свои числа — размеры пересчитаются.</p>
+        <div class="stepper"><label for="g-st">Петель в 10 см</label><div class="ctl"><button type="button" data-step="g-st" data-d="-1" aria-label="Меньше петель">−</button><input id="g-st" type="number" inputmode="decimal" min="10" max="40" step="0.5" value="22"><button type="button" data-step="g-st" data-d="1" aria-label="Больше петель">+</button></div></div>
+        <div class="stepper"><label for="g-row">Рядов в 10 см</label><div class="ctl"><button type="button" data-step="g-row" data-d="-1" aria-label="Меньше рядов">−</button><input id="g-row" type="number" inputmode="decimal" min="10" max="50" step="0.5" value="30"><button type="button" data-step="g-row" data-d="1" aria-label="Больше рядов">+</button></div></div>
+        <p class="note">22 п. и 30 р. стоят для примера: так обычно вяжется такая пряжа на спицах 4 мм. <span class="tag-est">оценка</span></p>
+      </div>
+      <div>
+        <table class="measures" id="measures" aria-label="Размеры переда по плотности"></table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2. Схема ============ -->
+<section id="chart-sec">
+  <div class="wrap sec-head">
+    <div class="eyebrow">Шаг 2 · перед, ряд за рядом</div>
+    <h2>Схема по рядам</h2>
+    <p class="lead">Нажмите на любой ряд схемы. Справа появится раскладка ряда в том порядке, в котором вы его вяжете, и всё, что в нём происходит: перекресты, убавки, укороченные ряды. Отметки «связан» сохраняются в этом браузере.</p>
+  </div>
+  <div class="wide bench">
+    <div class="chart-card">
+      <div class="toolbar">
+        <div class="seg" id="stage-seg" role="group" aria-label="Показать этап"></div>
+        <span class="sp"></span>
+        <button class="icon-btn" id="zoom-out" type="button" aria-label="Уменьшить">−</button>
+        <span class="zoomlbl" id="zoom-lbl">100%</span>
+        <button class="icon-btn" id="zoom-in" type="button" aria-label="Увеличить">+</button>
+      </div>
+      <div class="chart-scroll" id="chart-scroll" tabindex="0" aria-label="Схема переда. Стрелки вверх и вниз меняют ряд, Enter отмечает ряд связанным.">
+        <canvas id="chart" role="img" aria-label="Схема переда безрукавки: 85 петель, 140 рядов"></canvas>
+      </div>
+      <div id="rp-mini" aria-hidden="true"><div class="t"><span id="mini-t"></span><a href="#rowpanel">Подробнее ↓</a></div><div class="seq" id="mini-seq"></div></div>
+      <div class="chart-foot">
+        <span><i class="mini-sw" style="background:var(--t-purl)"></i>изнаночная гладь</span>
+        <span><i class="mini-sw" style="background:var(--t-knit)"></i>лицевая, полосы</span>
+        <span><i class="mini-sw" style="background:var(--t-cable)"></i>коса и жгуты</span>
+        <span><svg width="22" height="12" viewBox="0 0 22 12" aria-hidden="true"><path d="M2 3 L20 9 M2 9 L20 3" stroke="var(--stamp)" stroke-width="2" stroke-linecap="round"/></svg>перекрест</span>
+        <span>При увеличении на изнаночных петлях появляется «—», как в обычных схемах. На телефоне схему можно увеличивать двумя пальцами и листать вбок.</span>
+      </div>
+    </div>
+
+    <aside class="rowpanel" id="rowpanel" aria-live="polite">
+      <div class="rp-head">
+        <div class="rp-num" id="rp-num">1 <small>/ 140</small></div>
+        <div class="rp-dir" id="rp-dir"></div>
+      </div>
+      <div class="rp-stage" id="rp-stage"></div>
+      <div class="runs" id="rp-runs"></div>
+      <ul class="rp-notes" id="rp-notes"></ul>
+      <div class="rp-nav">
+        <button class="btn icon" id="rp-prev" type="button" aria-label="Предыдущий ряд">↓</button>
+        <button class="btn primary" id="rp-done" type="button">Связан — следующий ряд</button>
+        <button class="btn icon" id="rp-next" type="button" aria-label="Следующий ряд">↑</button>
+        <button class="btn" id="rp-unmark" type="button">Снять отметку</button>
+      </div>
+      <div class="prog"><div id="prog-txt">Связано 0 из 140 рядов</div><div class="bar"><div id="prog-bar"></div></div></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ 3. Этапы ============ -->
+<section id="stages" class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Шаг 3 · шесть этапов</div>
+    <h2>Перед по этапам</h2>
+    <p class="lead">Ряды сгруппированы по тому, что меняется в форме детали. На маленькой схеме выделены ряды этапа. Кнопка откроет этап на большой схеме.</p>
+  </div>
+  <div class="stages" id="stage-list"></div>
+</section>
+
+<!-- ============ 4. Спинка и сборка ============ -->
+<section id="finish" class="wrap">
+  <div class="sec-head">
+    <div class="eyebrow">Шаг 4 · вторая деталь и швы</div>
+    <h2>Спинка и сборка</h2>
+  </div>
+  <div class="panel stack">
+    <h3>Спинка <span class="tag-est">наш вариант</span></h3>
+    <p>Спинки в журнале нет, на фото она тоже не видна. Проще всего связать её по тем же контурам, что и перед: набор 81 п., те же убавки и прибавки по бокам, та же пройма, плечи по 14 п. с укороченными рядами и воротник на 39 центральных петлях, 15 рядов.</p>
+    <p>Узор — на выбор: сплошная изнаночная гладь (спокойная спинка), изнаночная гладь со жгутами вдоль пройм, как на переде, или полностью по схеме переда. Если спинка будет гладкой, проверьте ширину: без кос полотно шире, и петель может понадобиться на 6–8 меньше.</p>
+  </div>
+
+  <h3 style="margin:30px 0 14px">Сборка</h3>
+  <ul class="check" id="assembly">
+    <li><input type="checkbox" id="as1"><label for="as1"><b>Отпарьте детали</b><span>Мохер только паром: утюг держите над полотном, не прижимая, чтобы не смять косы и ворс.</span></label></li>
+    <li><input type="checkbox" id="as2"><label for="as2"><b>Соедините плечи</b><span>Открытые петли плеч переда и спинки (по 14 п.) соедините трикотажным швом или закройте вместе на третьей спице.</span></label></li>
+    <li><input type="checkbox" id="as3"><label for="as3"><b>Сшейте воротник</b><span>Боковые края воротника переда и спинки сшейте швом «матрас» от плеча вверх. Верх воротника на фото слегка заворачивается — так и должно быть.</span></label></li>
+    <li><input type="checkbox" id="as4"><label for="as4"><b>Сшейте боковые швы</b><span>Швом «матрас» по одной петле от края, от низа до проймы.</span></label></li>
+    <li><input type="checkbox" id="as5"><label for="as5"><b>Обработайте проймы</b><span>На фото край проймы без отделки. Если он закручивается, обвяжите его одним рядом крючком полустолбиками. <span class="tag-est">по желанию</span></span></label></li>
+    <li><input type="checkbox" id="as6"><label for="as6"><b>Спрячьте концы нитей</b><span>В швы, по изнанке.</span></label></li>
+  </ul>
+
+  <div class="callout" style="margin-top:26px">
+    <div class="eyebrow">Чего нет на схеме</div>
+    <p>Пряжи, спиц, плотности и размера; выкройки спинки; направления перекрестов (на снимке его не разобрать); обработки низа и пройм. Низ на схеме без резинки — узор начинается прямо с первого ряда. Эти места мы заполнили обычными приёмами и везде это пометили.</p>
+    <p class="note">Схема перерисована со снимка по клеткам. На границах полос возможна ошибка в одну петлю: если где-то сомневаетесь, сверьтесь с оригиналом в журнале.</p>
+  </div>
+
+  <footer>Схема переда из журнала по вязанию. Перерисовка по клеткам, раскладка по рядам и пересчёт размеров сделаны для этой страницы. Отметки рядов и сборки хранятся только в вашем браузере.</footer>
+</section>
+
+<div class="counter" role="group" aria-label="Счётчик рядов">
+  <button type="button" id="ct-minus" aria-label="Предыдущий ряд">−</button>
+  <button type="button" class="val" id="ct-val" aria-label="Перейти к текущему ряду на схеме"><small>ряд</small><b id="ct-num">1</b></button>
+  <button type="button" id="ct-plus" aria-label="Отметить ряд связанным и перейти к следующему">+</button>
+</div>
+
+<script>
+const C0=-2;
+const ROWS=[
+"  ppccccccppkkkkkppppppppkkkkkkkppppppccccccccccccppkkkkppppkkkkkppppppppccccccpppp  ",
+"  ppccccccppkkkkkppppppppkkkkkkkppppppccccccccccccppkkkkppppkkkkkppppppppccccccpppp  ",
+"  ppccccccppkkkkkppppppppkkkkkkkppppppccccccccccccppkkkkppppkkkkkppppppppccccccpppp  ",
+"  ppccccccppkkkkkppppppppkkkkkkkppppppccccccccccccppkkkkpppkkkkkkppppppppccccccpppp  ",
+"  pppccccccppkkkkkppppppkkkkkkkppppppccccccccccccpppkkkkpppkkkkkpppppppppccccccpppp  ",
+"  pppccccccppkkkkkppppppkkkkkkkppppppccccccccccccpppkkkkpppkkkkkpppppppppccccccpppp  ",
+"  pppccccccppkkkkkppppppkkkkkkkpppppccccccccccccppppkkkkpppkkkkkppppppppccccccppppp  ",
+"  pppccccccppkkkkkppppppkkkkkkkpppppccccccccccccpppkkkkkpppkkkkkppppppppccccccppppp  ",
+"  pppccccccppkkkkkkpppppkkkkkkkppppccccccccccccppppkkkkkppkkkkkpppppppppccccccppppp  ",
+"  pppccccccppkkkkkkpppppkkkkkkkppppccccccccccccppppkkkkkppkkkkkpppppppppccccccppppp  ",
+"  ppppccccccppkkkkkppppkkkkkkkpppppccccccccccccpppppkkkkppkkkkkpppppppppccccccppppp  ",
+"  ppppccccccppkkkkkppppkkkkkkkpppppccccccccccccpppppkkkkppkkkkkpppppppppccccccppppp  ",
+"  ppppccccccpppkkkkkpppkkkkkkkppppccccccccccccppppppkkkkppkkkkkppppppppccccccpppppp  ",
+"   pppccccccpppkkkkkpppkkkkkkkppppccccccccccccppppppkkkkppkkkkkppppppppccccccppppp   ",
+"   pppccccccpppkkkkkpppkkkkkkkppppccccccccccccppppppkkkkpppkkkkkpppppppccccccppppp   ",
+"   pppccccccpppkkkkkpppkkkkkkkppppccccccccccccppppppkkkkpppkkkkkpppppppccccccppppp   ",
+"   ppppccccccppkkkkkppkkkkkkkppppccccccccccccpppppppkkkkpppkkkkkpppppppccccccppppp   ",
+"   ppppccccccppkkkkkppkkkkkkkppppccccccccccccpppppppkkkkpppkkkkkpppppppccccccppppp   ",
+"   ppppccccccppkkkkkppkkkkkkkppppccccccccccccpppppppkkkkpppkkkkkpppppppccccccppppp   ",
+"   ppppccccccppkkkkkppkkkkkkkppppccccccccccccpppppppkkkkpppkkkkkpppppppccccccppppp   ",
+"   ppppccccccppkkkkkppkkkkkkkppppccccccccccccpppppppkkkkppppkkkkkpppppppccccccpppp   ",
+"   ppppccccccppkkkkkppkkkkkkkppppccccccccccccpppppppkkkkppppkkkkkpppppppccccccpppp   ",
+"   pppppccccccppkkkkkpkkkkkkkppppccccccccccccpppppppkkkkppppkkkkkpppppppccccccpppp   ",
+"   pppppccccccppkkkkkpkkkkkkkppppccccccccccccpppppppkkkkppppkkkkkpppppppccccccpppp   ",
+"   pppppccccccppkkkkkpkkkkkkkppppccccccccccccpppppppkkkkpppppkkkkkppppppccccccpppp   ",
+"    ppppccccccppkkkkkpkkkkkkkppppccccccccccccpppppppkkkkpppppkkkkkppppppccccccppp    ",
+"    ppppccccccppkkkkkpkkkkkkkpppppccccccccccccpppppkkkkppppppkkkkkppppppccccccppp    ",
+"    ppppccccccppkkkkkkkkkkkkkpppppccccccccccccpppppkkkkppppppkkkkkppppppccccccppp    ",
+"    ppppccccccpppkkkkkkkkkkkkpppppcccccccccccckppppkkkkpppppppkkkkkpppppccccccppp    ",
+"    ppppccccccpppkkkkkkkkkkkkpppppcccccccccccckppppkkkkpppppppkkkkkpppppccccccppp    ",
+"    ppppccccccpppkkkkkkkkkkkkppppppccccccccccccppppkkkkpppppppkkkkkpppppccccccppp    ",
+"    ppppccccccpppkkkkkkkkkkkkppppppccccccccccccppppkkkkpppppppkkkkkpppppccccccppp    ",
+"    ppppccccccpppkkkkkkkkkkkkppppppccccccccccccppppkkkkppppppppkkkkkpppccccccpppp    ",
+"    ppppccccccpppkkkkkkkkkkkkppppppccccccccccccppppkkkkppppppppkkkkkpppccccccpppp    ",
+"    ppppccccccpppkkkkkkkkkkkkpppppppccccccccccccppkkkkpppppppppkkkkkpppccccccpppp    ",
+"    ppppccccccpppkkkkkkkkkkkkpppppppccccccccccccppkkkkpppppppppkkkkkpppccccccpppp    ",
+"    ppppccccccppkkkkkkkkkkkkkpppppppccccccccccccppkkkkkpppppppppkkkkkpccccccppppp    ",
+"     pppccccccppkkkkkpkkkkkkkpppppppccccccccccccppkkkkkpppppppppkkkkkpccccccpppp     ",
+"     pppccccccppkkkkkppkkkkkkkpppppppccccccccccckpkkkpppppppppppkkkkkpccccccpppp     ",
+"     pppccccccppkkkkkppkkkkkkkpppppppcccccccccccckkkkpppppppppppkkkkkpccccccpppp     ",
+"     pppccccccpkkkkkkppkkkkkkkpppppppcccccccccccckkkpppppppppppppkkkkpcccccppppp     ",
+"     pppccccccpkkkkkkppkkkkkkkpppppppcccccccccccckkkpppppppppppppkkkkkcccccppppp     ",
+"     pppccccccppkkkkkppkkkkkkkppppppppccccccccccckpppppppppppppppkkkkkccccpppppc     ",
+"     pppccccccppkkkkkppkkkkkkkppppppppccccccccccccpppppppppppppppkkkkkccccpppppc     ",
+"     pppccccccppkkkkkppkkkkkkkppppppppccccccccccccppppppppppppppppkkkkkccppppppc     ",
+"     pppccccccppkkkkkppkkkkkkkppppppppcccccccccccckpppppppppppppppkkkkkccppppppc     ",
+"     pppccccccppkkkkkpppkkkkkkkppppppppccccccccccckppppppppppppppppkkkkpcppppppc     ",
+"    ppppccccccppkkkkkpppkkkkkkkppppppppccccccccccccppppppppppppppppkkkkppppppppcc    ",
+"    pppccccccpkkkkkkppppkkkkkkkpppppppppccccccccccccpppppppppppppppkkkkpppppppppc    ",
+"    pppccccccpkkkkkkppppkkkkkkkpppppppppccccccccccccpppppppppppppppkkkkkppppppppc    ",
+"    pppccccccppkkkkkpppppkkkkkkkpppppppppccccccccccccpppppppppppppppkkkkkpppppppc    ",
+"    pppccccccppkkkkkpppppkkkkkkkpppppppppccccccccccccpppppppppppppppkkkkkpppppppc    ",
+"    pppccccccppkkkkkpppppkkkkkkkppppppppppccccccccccccppppppppppppcpkkkkkpppppppc    ",
+"   ppppccccccpkkkkkkpppppkkkkkkkpppppppkkpccccccccccccppppppppppppcckkkkkpppppppcc   ",
+"   ppppccccccpkkkkkkppppppkkkkkkkppppppkkppccccccccccccppppppppppccckkkkkkpppppppc   ",
+"   ppppccccccpkkkkkkppppppkkkkkkkkpppppkkppccccccccccccppppppppppccckkkkkkpppppppc   ",
+"   ppppccccccpkkkkkppppppppkkkkkkkpppkkkkppccccccccccccpppppppppcccckkkkkkpppppppc   ",
+"   ppppccccccpkkkkkppppppppkkkkkkkpppkkkkppccccccccccccpppppppppccccckkkkkpppppppc   ",
+"   ppppccccccpkkkkkpppppppppkkkkkkkpkkkkppppccccccccccccppppppppcccccpkkkkkppppppc   ",
+"  pppppccccccpkkkkkpppppppppkkkkkkkkkkkkppppccccccccccccppppppppcccccpkkkkkppppppcc  ",
+"  pppppccccccpkkkkkppppppppppkkkkkkkkkkpppppccccccccccccpppppppccccccppkkkkkppppppp  ",
+"  pppppccccccpkkkkkppppppppppkkkkkkkkkkpppppccccccccccccpppppppccccccpppkkkkppppppp  ",
+"  pppppccccccpkkkkpppppppppppkkkkkkkkkppppppccccccccccccpppppppccccccpppkkkkkpppppp  ",
+"  pppppcccccckkkkkpppppppppppkkkkkkkkkppppppccccccccccccppppppkccccccpppkkkkkpppppp  ",
+"  pppppcccccckkkkkpppppppppppkkkkkkkkpppppppccccccccccccppppppccccccppppkkkkkpppppp  ",
+" ppppppcccccckkkkkpppppppppppkkkkkkkkpppppppccccccccccccppppppccccccppppkkkkkppppppp ",
+" pppppppccccckkkkkpppppppppppkkkkkkkkppppppccccccccccccpppppppccccccpppppkkkkkpppppp ",
+" pppppppcccccckkkkpppppppppppkkkkkkkkppppppccccccccccccpppppppccccccpppppkkkkkpppppp ",
+" pppppppcccccckkkpppppppppppppkkkkkkkppppppccccccccccccppppppccccccppppppkkkkkpppppp ",
+" pppppppcccccckkkpppppppppppppkkkkkkkppppppccccccccccccppppppccccccppppppkkkkkpppppp ",
+" pppppppcccccckkppppppppppppppkkkkkkkppppppccccccccccccppppppccccccppppppkkkkkpppppp ",
+"ppppppppcccccckkpppppppppppppkkkkkkkkppppppccccccccccccppppppccccccppppppkkkkkppppppp",
+"pppppppppccccckkpppppppppppppkkkkkkkkkppppccccccccccccppppppccccccpppppppkkkkkppppppp",
+"pppppppppccccckkpppppppppppppkkkkkkkkkppppccccccccccccppppppccccccpppppppkkkkkppppppp",
+"pppppppppccccckkppppppppppppkkkkkkkkkkppppccccccccccccppppppccccccpppppppkkkkkppppppp",
+"pppppppkkcccccckppppppppppppkkkkkkkkkkppppccccccccccccppppppccccccpppppppkkkkkppppppp",
+"pppppppkkpccccccpppppppppppkkkkkkkkkkkppppcccccccccccckpppppccccccpppppppkkkkkppppppp",
+"pppppppkkkccccccpppppppppppkkkkkkkkkkkppppcccccccccccckpppppccccccpppppppkkkkkppppppp",
+"ppppppkkkkccccccppppppppppkkkkkkkkkkkkpppccccccccccccpppppppccccccpppppppkkkkkppppppp",
+"ppppppkkkkccccccppppppppppkkkkpkkkkkkkpppccccccccccccpppppppccccccpppppppkkkkkppppppp",
+"ppppppkkkkpccccccppppppppkkkkpppkkkkkkkppccccccccccccpppppppcccccckpppppkkkkkpppppppp",
+"   pppkkkkpccccccppppppppkkkkpppkkkkkkkppccccccccccccpppppppcccccckpppppkkkkkppppp   ",
+"   ppkkkkkpccccccppppppppkkkppppkkkkkkkpccccccccccccppppppppccccccppppppkkkkkpppp    ",
+"    pckkkkpccccccpppppppkkkkppppkkkkkkkpccccccccccccppppppppccccccppppppkkkkkpppp    ",
+"    kkkkkkppccccccpppppkkkkppppppkkkkkkpccccccccccccppppppppccccccppppppkkkkkppp     ",
+"     kkkkkppccccccpppppkkkkppppppkkkkkkkccccccccccccppppppppccccccppppppkkkkkppp     ",
+"     kkkkpppccccccpppppkkkpppppppkkkkkkkcccccccccccpppppppppccccccpppppkkkkkppp      ",
+"      kkkpppccccccppppkkkkpppppppkkkkkkccccccccccccpppppppppccccccpppppkkkkkppp      ",
+"      kkkppppccccccppkkkkkppppppppkkkkkccccccccccccpppppppppccccccpppppkkkkkpp       ",
+"       kkppppccccccppkkkkkppppppppkkkkkccccccccccccpppppppppccccccpppppkkkkkpp       ",
+"       kkppppccccccpkkkkppppppppppkkkkpcccccccccccpppppppppppccccccpppkkkkkppp       ",
+"       kkppppccccccpkkkkppppppppppkkkkccccccccccccpppppppppppccccccpppkkkkkpp        ",
+"        ppppppcccccpkkkppppppppppppkkkcccccccccccppppppppppppccccccpppkkkkkpp        ",
+"        ppppppccccckkkkppppppppppppkkccccccccccccppppppppppppccccccpppkkkkkpp        ",
+"        pppppppcccpkkkppppppppppppppkcccccccccccpppppppppppppccccccpppkkkkkpp        ",
+"        pppppppccckkkkppppppppppppppccccccccccccpppppppppppppcccccckppkkkkkp         ",
+"         pppppppkkkkkpppppppppppppppccccccccccccppppppppppppppccccccppkkkkkp         ",
+"         ppppppppkkkkpppppppppppppppccccccccccccppppppppppppppccccccpkkkkkkp         ",
+"         ppppppppkkkkkpppppppppppppccccccccccccpppppppppppppppccccccpkkkkkpp         ",
+"         pppppppkkkkkkpppppppppppppccccccccccccpppppppppppppppccccccpkkkkkpp         ",
+"         pppppppkkkkkcppppppppppppccccccccccccppkkpppppppppppppcccccckkkkkpp         ",
+"         pppppppkkkkccppppppppppppccccccccccccpkkkpppppppppppppcccccckkkkkpp         ",
+"         ppppppkkkkpccpppppppppppccccccccccccppkkkkppppppppppppcccccckkkkppp         ",
+"         ppppppkkkkcccpppppppppppccccccccccccpkkkkkppppppppppppcccccckkkkppp         ",
+"         ppppppkkkkccccpppppppppccccccccccccppkkkkkkppppppppppppccccckkkkppp         ",
+"         ppppppkkkkccccpppppppppccccccccccccppkkkkkkppppppppppppccccckkkkppp         ",
+"         pppppkkkkpccccpppppppppccccccccccccppkkkkkkkpppppppppppccccckkkpppp         ",
+"         pppppkkkkcccccpppppppppccccccccccccpppkkkkkkpppppppppppcccccckkpppp         ",
+"         pppppkkkkcccccppppppppccccccccccccppppkkkkkkkpppppppppppcccccckpppp         ",
+"         ppppkkkkccccccppppppppccccccccccccppppkkkkkkkpppppppppppcccccckpppp         ",
+"         pppkkkkpccccccppppppppccccccccccccppppkkkkkkkppppppppppppccccckpppp         ",
+"         pppkkkkpccccccppppppppccccccccccccppppkkkkkkkppppppppppkkcccccckppp         ",
+"         pppkkkkpccccccpppppppccccccccccccppppppkkkkkkkpppppppppkkpccccccppp         ",
+"         pppkkkkpccccccpppppppccccccccccccppppppkkkkkkkpppppppppkkpccccccppp         ",
+"         ppkkkkppccccccpppppppccccccccccccppppppkkkkkkkppppppppkkkppccccccpp         ",
+"         ppkkkkppccccccpppppppccccccccccccppppppkkkkkkkppppppppkkkppccccccpp         ",
+"         ppkkkkppccccccppppppccccccccccccppppppppkkkkkkkpppppppkkkkkpccccccp         ",
+"         ppkkkkppccccccppppppccccccccccccppppppppkkkkkkkpppppppkkkkkpccccccp         ",
+"         ppkkkkppccccccppppppccccccccccccppppppppkkkkkkkppppppkkkkkppccccccp         ",
+"         ppkkkkppccccccppppppccccccccccccppppppppkkkkpkkppppppkkkkkppcc              ",
+"              kppccccccpppppccccccccccccppppppppppkkkpkkkpppppkkkkkppcc              ",
+"              kppccccccpppppccccccccccccppppppppppkkkkkkkpppppkkkk                   ",
+"                   ccccpppppccccccccccccppppppppppkkkkkkkpppppkkkk                   ",
+"                   ccccpppppccccccccccccppppppppppkkkkkkkpppppkkkk                   ",
+"         kkkkkkppccccccppppccccccccccccppppppppppppkkkkkkkppppkkkkkppccccccp         ",
+"                       ppppccccccccccccppppppppppppkkkkkkkpppp                       ",
+"                       ppppccccccccccccppppppppppppkkkkkkkpppp                       ",
+"                       ppppccccccccccccppppppppppppkkkkkkkkppp                       ",
+"                       ppppccccccccccccpppppppppppppkkkkkkkppp                       ",
+"                       ppppccccccccccccpppppppppppppkkkkkkkppp                       ",
+"                       ppppccccccccccccpppppppppppppkkkkkkkppp                       ",
+"                       ppppccccccccccccpppppppppppppkkkkkkkppp                       ",
+"                       pppppccccccccccccppppppppppppkkkkkkkppp                       ",
+"                       pppppccccccccccccppppppppppppkkkkkkkppp                       ",
+"                       pppppccccccccccccppppppppppppkkkkkkkppp                       ",
+"                       pppppccccccccccccppppppppppppkkkkkkkppp                       ",
+"                       ppppppccccccccccccpppppppppppkkkkkkkppp                       ",
+"                       ppppppccccccccccccpppppppppppkkkkkkkppp                       ",
+"                       ppppppccccccccccccpppppppppppkkkkkkkppp                       ",
+"                       ppppppccccccccccccpppppppppppkkkkkkkppp                       "];
+const CROSS=[[5,3,8,"rope"],[5,39,46,"R"],[5,71,76,"rope"],[11,33,40,"L"],[13,4,9,"rope"],[13,69,74,"rope"],[17,35,42,"R"],[21,5,10,"rope"],[21,70,75,"rope"],[23,31,38,"L"],[29,6,11,"rope"],[29,36,43,"R"],[29,70,75,"rope"],[35,34,41,"L"],[37,6,11,"rope"],[37,68,73,"rope"],[41,39,46,"R"],[45,6,11,"rope"],[47,37,44,"L"],[53,5,10,"rope"],[53,44,51,"R"],[59,42,49,"L"],[61,5,10,"rope"],[61,61,66,"rope"],[65,46,53,"R"],[69,6,11,"rope"],[69,59,64,"rope"],[71,41,48,"L"],[77,8,13,"rope"],[77,44,51,"R"],[77,58,63,"rope"],[83,38,45,"L"],[85,10,15,"rope"],[85,58,63,"rope"],[89,41,48,"R"],[93,12,16,"rope"],[93,59,64,"rope"],[95,35,42,"L"],[101,36,43,"R"],[101,61,66,"rope"],[107,30,37,"L"],[109,16,20,"rope"],[109,63,68,"rope"],[113,32,39,"R"],[117,15,20,"rope"],[117,67,72,"rope"],[119,27,34,"L"],[125,29,36,"R"],[131,25,32,"L"],[137,31,38,"R"]];
+(function(){
+"use strict";
+const NR=ROWS.length, NC=ROWS[0].length;
+const store={get(k,d){try{const v=localStorage.getItem(k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+
+/* ---------- data helpers ---------- */
+function cell(r,c){if(r<1||r>NR)return ' ';const j=c-C0;if(j<0||j>=NC)return ' ';return ROWS[r-1][j]}
+const SPAN=[null];
+for(let r=1;r<=NR;r++){const s=ROWS[r-1];let a=-1,b=-1;for(let j=0;j<NC;j++){if(s[j]!==' '){if(a<0)a=j;b=j}}SPAN.push({L:a+C0,R:b+C0,n:b-a+1})}
+const CROSS_BY_ROW={};CROSS.forEach(x=>{(CROSS_BY_ROW[x[0]]=CROSS_BY_ROW[x[0]]||[]).push(x)});
+function runsLR(r){const out=[];const sp=SPAN[r];let c=sp.L;while(c<=sp.R){const t=cell(r,c);let e=c;while(e+1<=sp.R&&cell(r,e+1)===t)e++;out.push({t,a:c,b:e,n:e-c+1});c=e+1}return out}
+const isRS=r=>r%2===1;
+function pos(r,c){const sp=SPAN[r];return isRS(r)?sp.R-c+1:c-sp.L+1}
+function posRange(r,a,b){const p1=pos(r,a),p2=pos(r,b);return [Math.min(p1,p2),Math.max(p1,p2)]}
+function elName(t,n){return t==='p'?'фон':t==='k'?'полоса':(n>=9?'коса':'жгут')}
+
+const STAGES=[
+ {id:'s1',no:'3.1',name:'Низ и талия',a:1,b:47},
+ {id:'s2',no:'3.2',name:'От талии к груди',a:48,b:81},
+ {id:'s3',no:'3.3',name:'Пройма',a:82,b:97},
+ {id:'s4',no:'3.4',name:'До плеч',a:98,b:119},
+ {id:'s5',no:'3.5',name:'Плечи',a:120,b:125},
+ {id:'s6',no:'3.6',name:'Воротник',a:126,b:140}
+];
+const stageOf=r=>STAGES.find(s=>r>=s.a&&r<=s.b);
+
+/* ---------- theme colors for canvas ---------- */
+let COL={};
+function readColors(){const cs=getComputedStyle(document.documentElement);const g=n=>cs.getPropertyValue(n).trim();
+  COL={p:g('--t-purl'),k:g('--t-knit'),c:g('--t-cable'),edge:g('--t-edge'),sym:g('--t-sym'),gl:g('--t-gridline'),stamp:g('--stamp'),sel:g('--sel'),selSoft:g('--sel-soft'),ok:g('--ok'),surface:g('--surface'),paper:g('--paper'),ink:g('--ink'),muted:g('--muted'),line:g('--line')}}
+
+/* ---------- state ---------- */
+let sel=Math.min(NR,Math.max(1,store.get('bk-row',1)|0));
+let done=new Set(store.get('bk-done',[]));
+let focusStage=null;
+let zoom=store.get('bk-zoom',0);
+
+/* ---------- big chart ---------- */
+const cv=document.getElementById('chart'), scroller=document.getElementById('chart-scroll');
+const PADL=10,PADR=46,PADT=12,PADB=26;
+let geo={cw:8,ch:6.6};
+function fitZoom(){const w=scroller.clientWidth||700;return Math.max(4,Math.min(16,(w-PADL-PADR-4)/NC))}
+function setGeo(){const w=scroller.clientWidth||700;const cw=zoom||(w<620?9:fitZoom());geo={cw,ch:cw*0.82}}
+function X(c){return PADL+(c-C0)*geo.cw}
+function Y(r){return PADT+(NR-r)*geo.ch}
+function drawChart(){
+  setGeo();const {cw,ch}=geo;
+  const W=Math.ceil(PADL+NC*cw+PADR), H=Math.ceil(PADT+NR*ch+PADB);
+  let dpr=Math.min(window.devicePixelRatio||1,2.5);const cap=Math.sqrt(15e6/(W*H));if(dpr>cap)dpr=cap;
+  cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);cv.style.width=W+'px';cv.style.height=H+'px';
+  const g=cv.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);
+  g.fillStyle=COL.surface;g.fillRect(0,0,W,H);
+  // selected band
+  g.fillStyle=COL.selSoft;g.fillRect(0,Y(sel),W,ch);
+  // cells
+  for(let r=1;r<=NR;r++){const s=ROWS[r-1],y=Y(r);
+    for(let j=0;j<NC;j++){const t=s[j];if(t===' ')continue;g.fillStyle=COL[t];g.fillRect(PADL+j*cw,y,cw+.5,ch+.5)}}
+  // grid lines
+  if(cw>=6){g.strokeStyle=COL.gl;g.lineWidth=1;g.beginPath();
+    for(let r=1;r<=NR;r++){const sp=SPAN[r],y=Math.round(Y(r))+.5;g.moveTo(X(sp.L),y);g.lineTo(X(sp.R+1),y)}
+    for(let r=1;r<=NR;r++){const sp=SPAN[r],y=Y(r);for(let c=sp.L+1;c<=sp.R;c++){const x=Math.round(X(c))+.5;g.moveTo(x,y);g.lineTo(x,y+ch)}}
+    g.stroke()}
+  // purl symbols
+  if(cw>=12){g.strokeStyle=COL.sym;g.lineWidth=Math.max(1.2,cw*.09);g.lineCap='round';g.beginPath();
+    for(let r=1;r<=NR;r++){const s=ROWS[r-1],y=Y(r)+ch/2;for(let j=0;j<NC;j++){if(s[j]==='p'){const x=PADL+j*cw;g.moveTo(x+cw*.3,y);g.lineTo(x+cw*.7,y)}}}
+    g.stroke()}
+  // stage dimming
+  if(focusStage){g.fillStyle=COL.paper;g.globalAlpha=.66;
+    g.fillRect(0,0,W,Y(focusStage.b));g.fillRect(0,Y(focusStage.a-1),W,H-Y(focusStage.a-1));g.globalAlpha=1}
+  // crosses
+  g.strokeStyle=COL.stamp;g.lineWidth=Math.max(1.3,cw*.13);g.lineCap='round';g.beginPath();
+  CROSS.forEach(([r,a,b])=>{const y=Y(r),x1=X(a)+cw*.25,x2=X(b+1)-cw*.25,t=y+ch*.22,bt=y+ch*.78;g.moveTo(x1,t);g.lineTo(x2,bt);g.moveTo(x1,bt);g.lineTo(x2,t)});
+  g.stroke();
+  // outline
+  g.strokeStyle=COL.edge;g.lineWidth=Math.max(1.4,cw*.14);g.lineCap='square';g.beginPath();
+  for(let r=1;r<=NR;r++){const sp=SPAN[r],y=Y(r);
+    g.moveTo(X(sp.L),y);g.lineTo(X(sp.L),y+ch);g.moveTo(X(sp.R+1),y);g.lineTo(X(sp.R+1),y+ch);
+    for(let c=sp.L;c<=sp.R;c++){if(cell(r+1,c)===' '){g.moveTo(X(c),y);g.lineTo(X(c+1),y)}if(cell(r-1,c)===' '){g.moveTo(X(c),y+ch);g.lineTo(X(c+1),y+ch)}}}
+  g.stroke();
+  // selected row frame
+  {const sp=SPAN[sel];g.strokeStyle=COL.sel;g.lineWidth=2.2;g.strokeRect(X(sp.L)-1.5,Y(sel)-1.5,(sp.R-sp.L+1)*cw+3,ch+3)}
+  // row numbers + done marks
+  const gx=PADL+NC*cw+6, every=ch>=11?1:(ch>=6?5:10);
+  g.textBaseline='middle';
+  for(let r=1;r<=NR;r++){const y=Y(r)+ch/2;
+    if(done.has(r)){g.fillStyle=COL.ok;g.fillRect(gx-4,Y(r)+.5,3,Math.max(1,ch-1))}
+    if(r===sel)continue;
+    if(r%every===0||r===1){g.fillStyle=r%10===0?COL.ink:COL.muted;g.font=(r%10===0?'600 ':'400 ')+Math.min(11,Math.max(9,ch*.8))+'px "IBM Plex Mono",ui-monospace,monospace';g.fillText(String(r),gx+2,y)}}
+  // selected pill
+  {const y=Y(sel)+ch/2;g.font='600 11px "IBM Plex Mono",ui-monospace,monospace';const tw=g.measureText(String(sel)).width;
+    g.fillStyle=COL.sel;roundRect(g,gx-1,y-8,tw+8,16,8);g.fill();g.fillStyle=COL.surface;g.fillText(String(sel),gx+3,y)}
+  // bottom: centre mark + edge note
+  g.fillStyle=COL.muted;g.font='400 10px "IBM Plex Mono",ui-monospace,monospace';g.textBaseline='top';
+  const yb=PADT+NR*ch+7;const xc=X(40)+cw/2;g.fillRect(xc-.5,yb-5,1,5);g.textAlign='center';g.fillText('середина',xc,yb);
+  g.textAlign='right';g.fillText('1-я петля →',X(81),yb);g.textAlign='left';
+}
+function roundRect(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()}
+
+function scrollToRow(r,smooth){const y=Y(r)+geo.ch/2-scroller.clientHeight/2;const sp=SPAN[r];
+  const xMid=(X(sp.L)+X(sp.R+1))/2-scroller.clientWidth/2;
+  scroller.scrollTo({top:Math.max(0,y),left:geo.cw*NC+PADL+PADR>scroller.clientWidth?Math.max(0,xMid):0,behavior:smooth?'smooth':'auto'})}
+
+cv.addEventListener('click',e=>{const rc=cv.getBoundingClientRect();const y=e.clientY-rc.top;let r=NR-Math.floor((y-PADT)/geo.ch);r=Math.max(1,Math.min(NR,r));select(r,false)});
+scroller.addEventListener('keydown',e=>{
+  if(e.key==='ArrowUp'){e.preventDefault();select(Math.min(NR,sel+1),true)}
+  else if(e.key==='ArrowDown'){e.preventDefault();select(Math.max(1,sel-1),true)}
+  else if(e.key==='Enter'||e.key===' '){e.preventDefault();markDone(true)}
+  else if(e.key==='+'||e.key==='='){e.preventDefault();setZoom(1)}
+  else if(e.key==='-'){e.preventDefault();setZoom(-1)}});
+
+let pinch=null;
+scroller.addEventListener('touchstart',e=>{if(e.touches.length===2){const[a,b]=e.touches;pinch=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY)}},{passive:true});
+scroller.addEventListener('touchmove',e=>{if(e.touches.length!==2||!pinch)return;e.preventDefault();const[a,b]=e.touches;const d=Math.hypot(a.clientX-b.clientX,a.clientY-b.clientY);
+  if(d/pinch>1.25){setZoom(1);pinch=d}else if(d/pinch<0.8){setZoom(-1);pinch=d}},{passive:false});
+scroller.addEventListener('touchend',e=>{if(e.touches.length<2)pinch=null});
+const ZSTEPS=[4,5,6,7,8,9,10,12,14,16,18,21];
+function setZoom(d){setGeo();const cur=geo.cw;let i=ZSTEPS.findIndex(z=>z>cur+.01);
+  let nz;if(d>0){nz=i<0?ZSTEPS[ZSTEPS.length-1]:ZSTEPS[i]}else{const lower=ZSTEPS.filter(z=>z<cur-.01);nz=lower.length?lower[lower.length-1]:ZSTEPS[0]}
+  zoom=nz;store.set('bk-zoom',zoom);drawChart();updZoomLbl();scrollToRow(sel,false)}
+function updZoomLbl(){document.getElementById('zoom-lbl').textContent=Math.round(geo.cw/fitZoom()*100)+'%'}
+document.getElementById('zoom-in').onclick=()=>setZoom(1);
+document.getElementById('zoom-out').onclick=()=>setZoom(-1);
+
+/* ---------- stage chips ---------- */
+const seg=document.getElementById('stage-seg');
+function mkChip(label,st){const b=document.createElement('button');b.type='button';b.className='chip';b.textContent=label;b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{focusStage=st;if(st)select(st.a,true);else{drawChart()}updChips()};seg.appendChild(b);return b}
+const chipAll=mkChip('Весь перед',null);
+const stageChips=STAGES.map(s=>mkChip(s.no.slice(2)+' · '+s.name,s));
+function updChips(){chipAll.setAttribute('aria-pressed',String(!focusStage));STAGES.forEach((s,i)=>stageChips[i].setAttribute('aria-pressed',String(focusStage===s)))}
+
+/* ---------- row panel ---------- */
+const $=id=>document.getElementById(id);
+function shapingNotes(r){
+  const n=[];if(r===1){n.push(['shape','<b>Наберите 81 п.</b> Низ без резинки: узор начинается сразу с этого ряда.']);return n}
+  const cur=SPAN[r],prev=SPAN[r-1];
+  if(r>=120&&r<=125){
+    const notes={
+      120:'<b>Укороченный ряд, правое плечо.</b> Не довязывайте последние 5 п. у правого края, разверните работу.',
+      121:'<b>Укороченный ряд, левое плечо.</b> Не довязывайте последние 5 п. у левого края, разверните работу.',
+      122:'<b>Правое плечо:</b> не довязывайте ещё 5 п. (всего 10 п. у правого края), разверните.',
+      123:'<b>Левое плечо:</b> не довязывайте ещё 5 п. (всего 10 п. у левого края), разверните.',
+      124:'Изнаночный ряд до уступов. На практике довяжите его до конца, закрывая уступы правого плеча.',
+      125:'<b>Ряд «1 ряд по всем петлям»:</b> провяжите все 67 п. подряд, закрывая уступы левого плеча. Плечи готовы — по 14 п. с каждой стороны.'};
+    n.push(['shape',notes[r]]);return n}
+  if(r===126){n.push(['shape','<b>Петли плеч (по 14 п.) снимите на нитку.</b> Дальше вяжется только воротник — 39 центральных петель.']);return n}
+  const dL=cur.L-prev.L, dR=prev.R-cur.R;
+  const side=(d,which)=>{const start=(isRS(r)&&which==='прав')||(!isRS(r)&&which==='лев');const where=start?'в начале ряда':'в конце ряда';
+    if(d>=2)return `<b>Закройте ${d} п.</b> у ${which}ого края`+(start?' (в начале ряда).':' — петли закрывают в начале ряда, поэтому сделайте это в начале следующего ряда, как обычно.');
+    if(d===1)return `<b>Убавьте 1 п.</b> у ${which}ого края (${where}).`;
+    if(d===-1)return `<b>Прибавьте 1 п.</b> у ${which}ого края (${where}).`;
+    if(d<0)return `<b>Прибавьте ${-d} п.</b> у ${which}ого края.`;return null};
+  const a=side(dR,'прав'),b=side(dL,'лев');
+  if(isRS(r)){if(a)n.push(['shape',a]);if(b)n.push(['shape',b])}else{if(b)n.push(['shape',b]);if(a)n.push(['shape',a])}
+  if(r===NR)n.push(['shape','<b>Последний ряд воротника.</b> Затем закройте петли свободно, по рисунку.']);
+  return n}
+function crossNotes(r){const list=CROSS_BY_ROW[r]||[];const out=[];
+  const ordered=list.slice().sort((x,y)=>isRS(r)?y[1]-x[1]:x[1]-y[1]);
+  ordered.forEach(([rr,a,b,t])=>{const [p1,p2]=posRange(r,a,b);const n=b-a+1;
+    if(t==='rope'){const h=Math.floor(n/2);out.push(['x',`<b>Жгут, п. ${p1}–${p2}:</b> перекрест ${h}/${n-h} — ${h} п. на вспомогательную спицу.`])}
+    else if(t==='R'){out.push(['x',`<b>Коса, п. ${p1}–${p2}:</b> правые 8 п. косы — 4 п. на вспомогательную спицу за работой, 4 лиц, затем 4 лиц со вспомогательной.`])}
+    else{out.push(['x',`<b>Коса, п. ${p1}–${p2}:</b> левые 8 п. косы — 4 п. на вспомогательную спицу перед работой, 4 лиц, затем 4 лиц со вспомогательной.`])}});
+  return out}
+function shiftNotes(r){if(r===1||r>=120)return [];const out=[];const cur=runsLR(r),prev=runsLR(r-1);
+  cur.forEach(u=>{if(u.t==='p'||u.n<3)return;let best=null,bo=0;
+    prev.forEach(v=>{if(v.t!==u.t)return;const o=Math.min(u.b,v.b)-Math.max(u.a,v.a)+1;if(o>bo){bo=o;best=v}});
+    if(!best||bo<2)return;const dl=u.a-best.a,dr=u.b-best.b;if(dl===0&&dr===0)return;if(Math.abs(dl)>2||Math.abs(dr)>2)return;
+    const [p1,p2]=posRange(r,u.a,u.b);const nm=elName(u.t,u.n);let txt;
+    if(dl===dr)txt=`${nm} п. ${p1}–${p2} сдвигается на ${Math.abs(dl)} п. ${dl>0?'вправо':'влево'}`;
+    else if(u.n>best.n)txt=`${nm} п. ${p1}–${p2} расширяется на ${u.n-best.n} п.`;
+    else if(u.n<best.n)txt=`${nm} п. ${p1}–${p2} сужается на ${best.n-u.n} п.`;
+    else txt=`${nm} п. ${p1}–${p2} смещается`;
+    out.push(txt)});
+  return out.length?[['', '<b>Сдвиги по схеме</b> (если смотреть на лицевую сторону): '+out.slice(0,6).join('; ')+(out.length>6?`; и ещё ${out.length-6}`:'')+'.']]:[]}
+
+function renderMini(r,runs,crosses,rs){const sp=SPAN[r];
+  $('mini-t').innerHTML=`<span><b>Ряд ${r}</b> · ${rs?'лицевой, справа налево':'изнаночный, слева направо'} · ${sp.n} п.</span>`;
+  $('mini-seq').innerHTML=runs.map(u=>{const knit=u.t!=='p';const w=rs?(knit?'лиц':'изн'):(knit?'изн':'лиц');const hx=crosses.some(x=>x[1]<=u.b&&x[2]>=u.a);
+    return hx?`<span class="x">${u.n} ${w} ✕</span>`:`${u.n} ${w}`}).join(', ')}
+function renderPanel(){
+  const r=sel,sp=SPAN[r],rs=isRS(r);
+  $('rp-num').innerHTML=`${r} <small>/ ${NR}</small>`;
+  $('rp-dir').innerHTML=`<b>${rs?'Лицевой':'Изнаночный'}</b>${rs?'справа налево':'слева направо'} · ${sp.n} п.`;
+  const st=stageOf(r);$('rp-stage').textContent=`Этап ${st.no} · ${st.name} · ряды ${st.a}–${st.b}`;
+  let runs=runsLR(r);if(rs)runs=runs.slice().reverse();
+  const crosses=CROSS_BY_ROW[r]||[];
+  $('rp-runs').innerHTML=runs.map(u=>{const knit=u.t!=='p';const word=rs?(knit?'лиц':'изн'):(knit?'изн':'лиц');
+    const hasX=crosses.some(x=>x[1]<=u.b&&x[2]>=u.a);const nm=u.t==='p'?'':' · '+elName(u.t,u.n);
+    return `<span class="run${hasX?' x':''}"><i class="${u.t}"></i><b>${u.n}</b> ${word}${nm}${hasX?' <span class="xm" title="перекрест">✕</span>':''}</span>`}).join('');
+  renderMini(r,runs,crosses,rs);
+  const notes=[...shapingNotes(r),...crossNotes(r),...shiftNotes(r)];
+  if(!notes.length)notes.push(['','Ряд без перекрестов и убавок — вяжите петли по схеме.']);
+  $('rp-notes').innerHTML=notes.map(([c,h])=>`<li class="${c}">${h}</li>`).join('');
+  const isDone=done.has(r);
+  $('rp-done').textContent=isDone?(r<NR?'Связан ✓ — к следующему':'Связан ✓'):(r<NR?'Связан — следующий ряд':'Отметить связанным');
+  $('rp-done').classList.toggle('done',isDone);
+  $('rp-unmark').hidden=!isDone;
+  $('rp-prev').disabled=r<=1;$('rp-next').disabled=r>=NR;
+  $('prog-txt').textContent=`Связано ${done.size} из ${NR} рядов`;$('prog-bar').style.width=(done.size/NR*100)+'%';
+  $('ct-num').textContent=r;$('ct-val').classList.toggle('done',isDone);
+}
+function select(r,scroll){sel=r;store.set('bk-row',sel);if(focusStage&&(r<focusStage.a||r>focusStage.b)){focusStage=null;updChips()}drawChart();renderPanel();if(scroll)scrollToRow(r,true)}
+function markDone(advance){done.add(sel);store.set('bk-done',[...done]);if(advance&&sel<NR){select(sel+1,true)}else{drawChart();renderPanel()}}
+$('rp-done').onclick=()=>markDone(true);
+$('rp-unmark').onclick=()=>{done.delete(sel);store.set('bk-done',[...done]);drawChart();renderPanel()};
+$('rp-prev').onclick=()=>select(Math.max(1,sel-1),true);
+$('rp-next').onclick=()=>select(Math.min(NR,sel+1),true);
+$('ct-minus').onclick=()=>select(Math.max(1,sel-1),true);
+$('ct-plus').onclick=()=>markDone(true);
+$('ct-val').onclick=()=>{document.getElementById('chart-sec').scrollIntoView({behavior:'smooth'});setTimeout(()=>scrollToRow(sel,true),350)};
+
+/* ---------- stages list ---------- */
+function crossRows(a,b,kind){return [...new Set(CROSS.filter(x=>x[0]>=a&&x[0]<=b&&(kind==='rope'?x[3]==='rope':x[3]!=='rope')).map(x=>x[0]+(kind==='rope'?'':(x[3]==='R'?' (справа)':' (слева)'))))]}
+const STAGE_TEXT={
+ s1:['Наберите 81 п. и сразу начинайте узор: низ без резинки.','Ряды 1–13 — прямо.','Убавьте по 1 п. с каждой стороны в 14-м, 26-м и 38-м рядах. После 38-го ряда остаётся 75 п. — это талия.','Слева и справа идут жгуты по 6 п., в центре — коса 12 п. Между ними гладкие полосы, они медленно расходятся наискосок.'],
+ s2:['Прибавьте по 1 п. с каждой стороны в 48, 54, 60, 66 и 72-м рядах.','С 72-го по 81-й ряд — прямо, 85 п. Это самое широкое место переда.','Гладкие полосы здесь сходятся и перекрещиваются буквой «Х», коса уходит вправо от середины.'],
+ s3:['82-й ряд: закройте по 3 п. с каждой стороны — остаётся 79 п.','Затем убавляйте по 1 п. с каждой стороны: 4 раза через ряд (ряды 83–90), потом ещё 2 раза — в 92/93-м и 96/97-м рядах.','После 97-го ряда — 67 п.','Левый жгут здесь уходит под гладкую полосу: светлая полоса сходит на клин и появляется снова выше.'],
+ s4:['Вяжите прямо, 67 п.','Коса поворачивает влево, к воротнику. Жгуты идут вдоль пройм к плечам.'],
+ s5:['Каждое плечо — 14 п., между ними 39 п. будущего воротника вяжутся как обычно.','Укороченные ряды: у каждого плеча оставьте недовязанными 5 п., затем ещё 5 п.; последние 4 п. у шеи вяжутся до конца.','125-й ряд — полоска «1 ряд» на схеме: один ряд по всем петлям, уступы закрываются. Уступы правого плеча удобнее закрыть уже в 124-м, изнаночном ряду.','Петли плеч снимите на нитку — их соединят с плечами спинки.'],
+ s6:['Вяжите 15 рядов на 39 центральных петлях.','Коса продолжается в левой части воротника, гладкая полоса — в правой. На фото именно она образует мягкий валик.','После 140-го ряда закройте петли свободно, по рисунку.']};
+const STAGE_COUNT={s1:'81 → 75 п.',s2:'75 → 85 п.',s3:'85 → 67 п.',s4:'67 п.',s5:'67 п. → 14 + 39 + 14',s6:'39 п.'};
+function drawMini(c,st){const cw=2.6,ch=2.13,W=NC*cw+2,H=NR*ch+2;const dpr=Math.min(window.devicePixelRatio||1,2);
+  c.width=W*dpr;c.height=H*dpr;const g=c.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,W,H);
+  for(let r=1;r<=NR;r++){const s=ROWS[r-1],y=1+(NR-r)*ch,on=r>=st.a&&r<=st.b;g.globalAlpha=on?1:.22;
+    for(let j=0;j<NC;j++){const t=s[j];if(t===' ')continue;g.fillStyle=COL[t];g.fillRect(1+j*cw,y,cw+.3,ch+.3)}}
+  g.globalAlpha=1;g.strokeStyle=COL.sel;g.lineWidth=1.5;const y0=1+(NR-st.b)*ch,y1=1+(NR-st.a+1)*ch;g.strokeRect(.75,y0,W-1.5,y1-y0)}
+function buildStages(){const box=$('stage-list');box.innerHTML='';
+  STAGES.forEach(st=>{const el=document.createElement('article');el.className='stage';el.id='stage-'+st.id;
+    const rope=crossRows(st.a,st.b,'rope'),braid=crossRows(st.a,st.b,'braid');
+    const extra=[];if(rope.length)extra.push('Перекресты жгутов: '+rope.join(', ')+'.');if(braid.length)extra.push('Перекресты косы: '+braid.join(', ')+'.');
+    el.innerHTML=`<canvas aria-label="Ряды ${st.a}–${st.b} на схеме"></canvas><div>
+      <div class="stage-head"><span class="no">${st.no}</span><h3>${st.name}</h3><span class="rows">ряды ${st.a}–${st.b}</span></div>
+      <ul>${STAGE_TEXT[st.id].map(t=>`<li>${t}</li>`).join('')}${extra.map(t=>`<li>${t}</li>`).join('')}</ul>
+      <span class="count">${STAGE_COUNT[st.id]}</span><br>
+      <button class="btn" type="button">Открыть на схеме</button></div>`;
+    el.querySelector('button').onclick=()=>{focusStage=st;updChips();document.getElementById('chart-sec').scrollIntoView({behavior:'smooth'});select(st.a,false);setTimeout(()=>scrollToRow(st.a,true),400)};
+    box.appendChild(el)});
+  redrawMinis()}
+function redrawMinis(){STAGES.forEach(st=>{const c=document.querySelector('#stage-'+st.id+' canvas');if(c)drawMini(c,st)})}
+
+/* ---------- gauge ---------- */
+const gs=$('g-st'),gr=$('g-row');const gsv=store.get('bk-gauge',null);if(gsv){gs.value=gsv[0];gr.value=gsv[1]}
+function cm(n,per){return (n/per*10).toFixed(1).replace('.',',')}
+function renderGauge(){const s=parseFloat(String(gs.value).replace(',','.'))||22, r=parseFloat(String(gr.value).replace(',','.'))||30;store.set('bk-gauge',[s,r]);
+  const rows=[['Ширина по низу','81 п.',cm(81,s)],['Талия, самое узкое','75 п.',cm(75,s)],['Грудь, самое широкое','85 п.',cm(85,s)],['Между проймами','67 п.',cm(67,s)],['Плечо','14 п.',cm(14,s)],['Воротник по ширине','39 п.',cm(39,s)],
+    ['Длина до проймы','81 р.',cm(81,r)],['Глубина проймы до плеча','44 р.',cm(44,r)],['Длина переда до плеча','125 р.',cm(125,r)],['Высота воротника','15 р.',cm(15,r)]];
+  $('measures').innerHTML=rows.map(x=>`<tr><td>${x[0]}</td><td>${x[1]}</td><td>${x[2]} см</td></tr>`).join('')+
+    `<tr class="total"><td><b>Обхват груди</b><br><span class="note">перед + такая же спинка</span></td><td>2 × 85 п.</td><td>${cm(170,s)} см</td></tr>`}
+document.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>{const i=$(b.dataset.step);const v=(parseFloat(String(i.value).replace(',','.'))||0)+Number(b.dataset.d)*0.5;i.value=Math.max(+i.min,Math.min(+i.max,v));renderGauge()});
+[gs,gr].forEach(i=>i.addEventListener('input',renderGauge));
+
+/* ---------- assembly checklist ---------- */
+const asm=store.get('bk-asm',{});
+document.querySelectorAll('#assembly input').forEach(i=>{i.checked=!!asm[i.id];i.closest('li').classList.toggle('on',i.checked);
+  i.addEventListener('change',()=>{asm[i.id]=i.checked;store.set('bk-asm',asm);i.closest('li').classList.toggle('on',i.checked)})});
+
+/* ---------- knitted preview (hero) ---------- */
+function drawKnit(){const c=$('knit');const cw=6,ch=4.4,W=NC*cw,H=NR*ch+4;const dpr=Math.min(window.devicePixelRatio||1,2);
+  c.width=W*dpr;c.height=H*dpr;const g=c.getContext('2d');g.setTransform(dpr,0,0,dpr,0,0);g.clearRect(0,0,W,H);
+  const Yk=r=>2+(NR-r)*ch;
+  const base={p:'#B9A98A',k:'#D9CCAF',c:'#E6DAC0'}, hi={p:'#D7C9AC',k:'#EEE5D1',c:'#FAF4E6'};
+  // underlay
+  for(let r=1;r<=NR;r++){const s=ROWS[r-1],y=Yk(r);for(let j=0;j<NC;j++){const t=s[j];if(t===' ')continue;g.fillStyle=t==='p'?'#9C8C6E':'#BBAC8D';g.fillRect(j*cw,y,cw+.4,ch+.4)}}
+  // stitches
+  g.lineCap='round';
+  for(let r=1;r<=NR;r++){const s=ROWS[r-1],y=Yk(r);
+    for(let j=0;j<NC;j++){const t=s[j];if(t===' ')continue;const x=j*cw;
+      if(t==='p'){g.fillStyle=base.p;g.beginPath();g.ellipse(x+cw/2+((r%2)?cw*.25:-cw*.25),y+ch*.55,cw*.42,ch*.36,0,0,Math.PI*2);g.fill();
+        g.fillStyle=hi.p;g.beginPath();g.ellipse(x+cw/2+((r%2)?cw*.25:-cw*.25),y+ch*.42,cw*.26,ch*.16,0,0,Math.PI*2);g.fill()}
+      else{g.strokeStyle=base[t];g.lineWidth=cw*.42;
+        g.beginPath();g.moveTo(x+cw*.2,y-ch*.05);g.quadraticCurveTo(x+cw*.24,y+ch*.7,x+cw*.5,y+ch*1.05);g.stroke();
+        g.beginPath();g.moveTo(x+cw*.8,y-ch*.05);g.quadraticCurveTo(x+cw*.76,y+ch*.7,x+cw*.5,y+ch*1.05);g.stroke();
+        g.strokeStyle=hi[t];g.lineWidth=cw*.16;
+        g.beginPath();g.moveTo(x+cw*.24,y+ch*.05);g.quadraticCurveTo(x+cw*.28,y+ch*.55,x+cw*.44,y+ch*.85);g.stroke();
+        g.beginPath();g.moveTo(x+cw*.76,y+ch*.05);g.quadraticCurveTo(x+cw*.72,y+ch*.55,x+cw*.56,y+ch*.85);g.stroke()}}}
+  // raised edges: shadow on purl next to knit
+  for(let r=1;r<=NR;r++){const y=Yk(r);const sp=SPAN[r];for(let c2=sp.L;c2<=sp.R;c2++){const t=cell(r,c2);if(t!=='p')continue;const x=(c2-C0)*cw;
+    const lt=cell(r,c2-1),rt=cell(r,c2+1);
+    if(lt==='k'||lt==='c'){const gr2=g.createLinearGradient(x,0,x+cw*.9,0);gr2.addColorStop(0,'rgba(40,28,14,.45)');gr2.addColorStop(1,'rgba(40,28,14,0)');g.fillStyle=gr2;g.fillRect(x,y,cw*.9,ch+.4)}
+    if(rt==='k'||rt==='c'){const gr2=g.createLinearGradient(x+cw,0,x+cw*.1,0);gr2.addColorStop(0,'rgba(40,28,14,.45)');gr2.addColorStop(1,'rgba(40,28,14,0)');g.fillStyle=gr2;g.fillRect(x+cw*.1,y,cw*.9,ch+.4)}}}
+  // cable twists
+  CROSS.forEach(([r,a,b])=>{const x1=(a-C0)*cw,x2=(b-C0+1)*cw,yT=Yk(r)-ch*.6,yB=Yk(r)+ch*1.6;const w=x2-x1;
+    g.lineWidth=Math.min(7,w*.2);g.strokeStyle='rgba(70,52,30,.22)';g.beginPath();g.moveTo(x2-cw*.8,yB);g.lineTo(x1+cw*.8,yT);g.stroke();
+    g.lineWidth=Math.min(6,w*.16);g.strokeStyle='rgba(252,247,236,.28)';g.beginPath();g.moveTo(x1+cw*.8,yB-1);g.lineTo(x2-cw*.8,yT-1);g.stroke();
+    g.fillStyle='rgba(70,52,30,.25)';g.fillRect(x1+cw*.5,Yk(r)+ch*.45,w-cw,1)});
+  // mohair halo
+  try{g.save();g.globalAlpha=.35;g.filter='blur(1.6px)';g.drawImage(c,0,0,W,H);g.restore()}catch(e){}
+  g.filter='none';g.globalAlpha=1;
+  // fluff
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  g.strokeStyle='rgba(255,250,238,.16)';g.lineWidth=.6;g.beginPath();
+  for(let i=0;i<1400;i++){const r=1+Math.floor(rnd()*NR),sp=SPAN[r];const c3=sp.L+Math.floor(rnd()*sp.n);const x=(c3-C0+rnd())*cw,y=Yk(r)+rnd()*ch;const a=rnd()*Math.PI*2,l=3+rnd()*7;g.moveTo(x,y);g.lineTo(x+Math.cos(a)*l,y+Math.sin(a)*l)}
+  g.stroke()}
+
+/* ---------- init & theme ---------- */
+function redrawAll(){readColors();drawChart();updZoomLbl();redrawMinis()}
+readColors();drawKnit();buildStages();renderGauge();updChips();drawChart();renderPanel();updZoomLbl();
+requestAnimationFrame(()=>scrollToRow(sel,false));
+try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',redrawAll)}catch(e){}
+new MutationObserver(redrawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(!zoom){drawChart()}updZoomLbl()},150)});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>drawChart());
+})();
+</script>
+
+</body>
+</html>
